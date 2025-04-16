@@ -13,7 +13,7 @@ class StatusSekolahFactory extends Factory
     public function definition(): array
     {
         return [
-            'nama_status' => $this->faker->word(),
+            'nama_status' => $this->faker->unique()->randomElement(['Negeri', 'Swasta']),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];

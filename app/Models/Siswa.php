@@ -19,18 +19,12 @@ class Siswa extends Model
         'tanggal_lahir',
         'nama_ibu_kandung',
         'sekolah_id',
-        'rombel_id',
-        'status',
+        'kelas',
     ];
 
     public function sekolah(): BelongsTo
     {
         return $this->belongsTo(Sekolah::class);
-    }
-
-    public function rombel(): BelongsTo
-    {
-        return $this->belongsTo(Rombel::class);
     }
 
     protected function casts(): array

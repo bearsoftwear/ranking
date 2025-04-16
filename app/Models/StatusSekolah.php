@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class StatusSekolah extends Model
 {
     use HasFactory, SoftDeletes;
-
+    // NEGERI atau SWASTA
     protected $fillable = [
         'nama_status',
     ];

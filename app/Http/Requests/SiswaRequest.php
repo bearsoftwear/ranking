@@ -16,8 +16,7 @@ class SiswaRequest extends FormRequest
             'tanggal_lahir' => ['required', 'date'],
             'nama_ibu_kandung' => ['required'],
             'sekolah_id' => ['required', 'exists:sekolahs'],
-            'rombel_id' => ['required', 'exists:rombels'],
-            'status' => ['required'],
+            'kelas' => ['required'],
         ];
     }
 

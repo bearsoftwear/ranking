@@ -16,13 +16,13 @@ class NilaiFactory extends Factory
     public function definition(): array
     {
         return [
-            'nilai' => $this->faker->randomFloat(),
+            'nilai' => $this->faker->numerify('#'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
 
-            'siswa_id' => Siswa::factory(),
-            'mata_pelajaran_id' => MataPelajaran::factory(),
-            'masa_kurikulum_id' => MasaKurikulum::factory(),
+            'siswa_id' => Siswa::inRandomOrder()->first()->id,
+            'mata_pelajaran_id' => MataPelajaran::inRandomOrder()->first()->id,
+            'masa_kurikulum_id' => MasaKurikulum::inRandomOrder()->first()->id,
         ];
     }
 }

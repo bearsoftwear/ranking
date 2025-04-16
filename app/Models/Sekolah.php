@@ -15,9 +15,8 @@ class Sekolah extends Model
         'npsn',
         'nama_sekolah',
         'kecamatan_id',
-        'jenjang_sekolah_id',
         'status_sekolah_id',
-        'bentuk_pendidikan',
+        'bentuk_pendidikan_id',
         'nama_kepala_sekolah',
         'nip_kepala_sekolah',
     ];
@@ -27,9 +26,9 @@ class Sekolah extends Model
         return $this->belongsTo(Kecamatan::class);
     }
 
-    public function jenjangSekolah(): BelongsTo
+    public function BentukPendidikan(): BelongsTo
     {
-        return $this->belongsTo(JenjangSekolah::class);
+        return $this->belongsTo(BentukPendidikan::class);
     }
 
     public function statusSekolah(): BelongsTo

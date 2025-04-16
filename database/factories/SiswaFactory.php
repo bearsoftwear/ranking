@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Rombel;
 use App\Models\Sekolah;
 use App\Models\Siswa;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -21,12 +20,11 @@ class SiswaFactory extends Factory
             'jenis_kelamin' => $this->faker->randomElement(['L', 'P']),
             'tanggal_lahir' => $this->faker->date,
             'nama_ibu_kandung' => $this->faker->name('female'),
-            'status' => 'aktif',
+            'kelas' => $this->faker->numberBetween(1, 6),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
 
-            'sekolah_id' => \App\Models\Sekolah::inRandomOrder()->first()->id,
-            'rombel_id' => \App\Models\Rombel::inRandomOrder()->first()->id,
+            'sekolah_id' => Sekolah::inRandomOrder()->first()->id,
         ];
     }
 }

@@ -13,8 +13,8 @@ class MataPelajaranFactory extends Factory
     public function definition(): array
     {
         return [
-            'nama_mapel' => $this->faker->word(),
-            'bobot' => $this->faker->randomFloat(),
+            'nama_mapel' => $this->faker->unique()->name(),
+            'bobot' => $this->faker->numerify('#'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
         ];
