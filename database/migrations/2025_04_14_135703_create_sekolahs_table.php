@@ -9,15 +9,19 @@ return new class extends Migration {
     {
         Schema::create('sekolahs', function (Blueprint $table) {
             $table->id();
-            $table->integer('npsn')->unique();
+            $table->string('npsn')->unique();
             $table->string('nama_sekolah');
             $table->foreignId('kecamatan_id')->constrained('kecamatans');
             $table->foreignId('status_sekolah_id')->constrained('status_sekolahs');
             $table->foreignId('bentuk_pendidikan_id')->constrained('bentuk_pendidikans');
             $table->string('nama_kepala_sekolah')->nullable();
-            $table->integer('nip_kepala_sekolah')->nullable();
+            $table->string('nip_kepala_sekolah')->nullable();
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index('kecamatan_id');
+            $table->index('status_sekolah_id');
+            $table->index('bentuk_pendidikan_id');
         });
     }
 

@@ -9,14 +9,14 @@ class SiswaRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'nisn' => ['required'],
-            'nik' => ['required'],
-            'nama' => ['required'],
-            'jenis_kelamin' => ['required'],
-            'tanggal_lahir' => ['required', 'date'],
-            'nama_ibu_kandung' => ['required'],
-            'sekolah_id' => ['required', 'exists:sekolahs'],
-            'kelas' => ['required'],
+            'nisn' => 'required|numeric|unique:siswas,nisn',
+            'nik' => 'required|numeric|unique:siswas,nik',
+            'nama' => 'required|string',
+            'jenis_kelamin' => 'required|in:L,P',
+            'tanggal_lahir' => 'required|date',
+            'nama_ibu_kandung' => 'required|string',
+            'sekolah_id' => 'required|exists:sekolahs',
+            'kelas' => 'required|integer|min:1',
         ];
     }
 

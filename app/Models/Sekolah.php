@@ -26,7 +26,7 @@ class Sekolah extends Model
         return $this->belongsTo(Kecamatan::class);
     }
 
-    public function BentukPendidikan(): BelongsTo
+    public function bentukPendidikan(): BelongsTo
     {
         return $this->belongsTo(BentukPendidikan::class);
     }

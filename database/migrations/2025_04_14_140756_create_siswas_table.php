@@ -9,8 +9,8 @@ return new class extends Migration {
     {
         Schema::create('siswas', function (Blueprint $table) {
             $table->id();
-            $table->integer('nisn')->unique();
-            $table->integer('nik')->unique();
+            $table->string('nisn')->unique();
+            $table->string('nik')->unique();
             $table->string('nama');
             $table->enum('jenis_kelamin', ['L', 'P']);
             $table->date('tanggal_lahir');
@@ -19,6 +19,9 @@ return new class extends Migration {
             $table->integer('kelas');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index('sekolah_id');
+            $table->index('kelas');
         });
     }
 

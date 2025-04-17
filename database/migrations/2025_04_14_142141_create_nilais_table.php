@@ -15,6 +15,10 @@ return new class extends Migration {
             $table->float('nilai');
             $table->timestamps();
             $table->softDeletes();
+
+            $table->index('siswa_id');
+            $table->index('mata_pelajaran_id');
+            $table->index('masa_kurikulum_id');
         });
     }
 

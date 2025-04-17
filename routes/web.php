@@ -16,4 +16,5 @@ Route::middleware(['auth', 'verified'])->group(function () {
 require __DIR__.'/settings.php';
 require __DIR__.'/auth.php';
 
-//todo: jenjang pendidikan diganti bentuk pendidikan
+// todo: ranking view
+// todo: export import excel https://www.malasngoding.com/import-excel-laravel/
