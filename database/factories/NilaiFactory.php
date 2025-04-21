@@ -16,7 +16,7 @@ class NilaiFactory extends Factory
     public function definition(): array
     {
         return [
-            'nilai' => $this->faker->randomFloat(1, 0, 100),
+            'nilai' => $this->faker->randomFloat(0, 0, 100),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
 

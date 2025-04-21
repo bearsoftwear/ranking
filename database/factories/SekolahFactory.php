@@ -18,13 +18,10 @@ class SekolahFactory extends Factory
         return [
             'npsn' => $this->faker->unique()->numerify('########'),
             'nama_sekolah' => $this->faker->company(),
-            'nama_kepala_sekolah' => $this->faker->name(),
-            'nip_kepala_sekolah' => $this->faker->unique()->numerify('##################'),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
 
             'kecamatan_id' => Kecamatan::inRandomOrder()->first()->id,
-            'bentuk_pendidikan_id' => BentukPendidikan::inRandomOrder()->first()->id,
             'status_sekolah_id' => StatusSekolah::inRandomOrder()->first()->id,
         ];
     }

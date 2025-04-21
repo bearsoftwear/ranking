@@ -35,13 +35,6 @@ class DatabaseSeeder extends Seeder
             'remember_token' => Str::random(10),
         ]);
 
-        $bentukPendidikans = ['PAUD', 'SD', 'SMP', 'SMA', 'SMK'];
-        foreach($bentukPendidikans as $bentukPendidikan) {
-            BentukPendidikan::factory()->create([
-                'nama_bentuk_pendidikan' => $bentukPendidikan,
-            ]);
-        }
-
         $kecamatans = ['Panggul', 'Munjungan', 'Pule', 'Dongko', 'Tugu', 'Karangan', 'Kampak', 'Watulimo', 'Bendungan', 'Gandusari', 'Trenggalek', 'Pogalan', 'Durenan', 'Suruh'];
         foreach($kecamatans as $kecamatan) {
             Kecamatan::factory()->create([

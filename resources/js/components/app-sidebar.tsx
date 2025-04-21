@@ -13,6 +13,21 @@ const mainNavItems: NavItem[] = [
         href: '/dashboard',
         icon: LayoutGrid,
     },
+    {
+        title: 'Input Nilai',
+        href: '/input_nilai',
+        icon: LayoutGrid,
+    },
+    {
+        title: 'Perankingan',
+        href: '/perankingan',
+        icon: LayoutGrid,
+    },
+    {
+        title: 'Administrator',
+        href: '/administrator',
+        icon: LayoutGrid,
+    },
 ];
 
 const footerNavItems: NavItem[] = [

@@ -13,7 +13,6 @@ return new class extends Migration {
                 s.id AS siswa_id,
                 s.nama,
                 sek.nama_sekolah,
-                s.kelas,
                 kec.nama_kecamatan,
                 COALESCE(SUM(n.nilai * mp.bobot), 0) AS total_nilai
             FROM siswas s
@@ -23,7 +22,7 @@ return new class extends Migration {
             LEFT JOIN mata_pelajarans mp ON n.mata_pelajaran_id = mp.id
             LEFT JOIN masa_kurikulums mk ON n.masa_kurikulum_id = mk.id
             WHERE mk.status = 'aktif' AND s.deleted_at IS NULL
-            GROUP BY s.id, s.nama, sek.nama_sekolah, s.kelas, kec.nama_kecamatan
+            GROUP BY s.id, s.nama, sek.nama_sekolah, kec.nama_kecamatan
             ORDER BY total_nilai DESC
        ");
 

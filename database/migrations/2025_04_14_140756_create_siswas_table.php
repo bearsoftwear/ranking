@@ -13,15 +13,11 @@ return new class extends Migration {
             $table->string('nik')->unique();
             $table->string('nama');
             $table->enum('jenis_kelamin', ['L', 'P']);
-            $table->date('tanggal_lahir');
-            $table->string('nama_ibu_kandung');
             $table->foreignId('sekolah_id')->constrained('sekolahs');
-            $table->integer('kelas');
             $table->timestamps();
             $table->softDeletes();
 
             $table->index('sekolah_id');
-            $table->index('kelas');
         });
     }
 

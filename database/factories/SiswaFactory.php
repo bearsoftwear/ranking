@@ -18,9 +18,6 @@ class SiswaFactory extends Factory
             'nik' => $this->faker->unique()->numerify('################'),
             'nama' => $this->faker->name(),
             'jenis_kelamin' => $this->faker->randomElement(['L', 'P']),
-            'tanggal_lahir' => $this->faker->date('Y-m-d', '2015-12-31'),
-            'nama_ibu_kandung' => $this->faker->name('female'),
-            'kelas' => $this->faker->numberBetween(1, 6),
             'created_at' => Carbon::now(),
             'updated_at' => Carbon::now(),
 
