@@ -8,18 +8,19 @@ use App\Models\Subject;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Carbon;
 
-class GradeFactory extends Factory{
+class GradeFactory extends Factory
+{
     protected $model = Grade::class;
 
     public function definition(): array
     {
         return [
-            'nilai' => $this->faker->randomFloat(),//
-'created_at' => Carbon::now(),
-'updated_at' => Carbon::now(),
+            'nilai' => $this->faker->numberBetween($min = 0, $max = 100),
+            'created_at' => Carbon::now(),
+            'updated_at' => Carbon::now(),
 
-'student_id' => Student::factory(),
-'subject_id' => Subject::factory(),
+            'student_id' => Student::inRandomOrder()->first()->id,
+            'subject_id' => Subject::inRandomOrder()->first()->id,
         ];
     }
 }

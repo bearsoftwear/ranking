@@ -2,16 +2,14 @@
 
 namespace Database\Seeders;
 
-use App\Models\BentukPendidikan;
+use App\Models\Grade;
 use App\Models\Kecamatan;
-use App\Models\MasaKurikulum;
-use App\Models\MataPelajaran;
-use App\Models\Nilai;
-use App\Models\Sekolah;
-use App\Models\Siswa;
-use App\Models\StatusSekolah;
+use App\Models\School;
+use App\Models\Student;
+use App\Models\Subject;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\UserProfile;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -25,7 +23,7 @@ class DatabaseSeeder extends Seeder
 
     public function run(): void
     {
-        // User::factory(10)->create();
+         User::factory(10)->create();
 
         User::factory()->create([
             'name' => "Bear Softwear",
@@ -42,28 +40,19 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        $masaKurikulum = ['2023 Genap', '2023 Ganjil', '2024 Genap', '2024 Ganjil', '2025 Genap', '2025 Ganjil'];
-        foreach($masaKurikulum as $masaKurikulum) {
-            MasaKurikulum::factory()->create([
-                'periode' => $masaKurikulum,
-                'status' => "aktif",
+        School::factory()->count(50)->create();
+
+        Student::factory()->count(100)->create();
+
+        $subjects = ['Matematika', 'Bahasa Indonesia', 'Bahasa Inggris', 'IPA', 'IPS'];
+        foreach($subjects as $subject) {
+            Subject::factory()->create([
+                'nama_mapel' => $subject,
             ]);
         }
 
-        $mataPelajarans = ['Matematika', 'Bahasa Indonesia', 'Bahasa Inggris', 'IPA', 'IPS'];
-        foreach($mataPelajarans as $mataPelajaran) {
-            MataPelajaran::factory()->create([
-                'nama_mapel' => $mataPelajaran,
-                'bobot' => random_int(1, max: 10),
-            ]);
-        }
+        Grade::factory()->count(200)->create();
 
-        StatusSekolah::factory()->count(2)->create();
-
-        Sekolah::factory()->count(10)->create();
-
-        Siswa::factory()->count(50)->create();
-
-        Nilai::factory()->count(50)->create();
+        UserProfile::factory(20)->create();
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\RankingController;
+use App\Http\Controllers\StudentController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -13,7 +13,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return Inertia::render('dashboard');
     })->name('dashboard');
 
-    Route::get('/rankings', [RankingController::class, 'index'])->name('rankings.index');
+    Route::resource('students', StudentController::class);
+    Route::post('students/import', [StudentController::class, 'import_excel'])->name('student.import_excel');
 });
 
 require __DIR__.'/settings.php';
