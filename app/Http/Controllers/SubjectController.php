@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Subject;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class SubjectController extends Controller
 {
     public function index()
     {
-        return Subject::all();
+        return Inertia::render('Subjects/Index', [
+            'subjects' => Subject::all(),
+        ]);
+        // return Subject::all();
     }
 
     public function store(Request $request)

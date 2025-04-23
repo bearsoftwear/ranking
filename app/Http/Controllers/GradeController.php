@@ -9,7 +9,10 @@ class GradeController extends Controller
 {
     public function index()
     {
-        return Grade::all();
+        // return inertia('Grades/Index', [
+        //     'grades' => Grade::with(['student', 'subject'])->get(),
+        // ]);
+        return Grade::with(['student', 'subject'])->get();
     }
 
     public function store(Request $request)

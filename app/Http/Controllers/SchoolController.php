@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\School;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class SchoolController extends Controller
 {
     public function index()
     {
-        return School::all();
+//        return Inertia::render('schools/page');
+        return Inertia::render('Schools/Index', ['schools' => School::all()]);
+        // return School::all();
     }
 
     public function store(Request $request)

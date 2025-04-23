@@ -20,6 +20,11 @@ export interface NavItem {
     href: string;
     icon?: LucideIcon | null;
     isActive?: boolean;
+    subItems?: {
+        title: string;
+        href: string;
+        icon?: LucideIcon | null;
+    }[];
 }
 
 export interface SharedData {
@@ -40,4 +45,22 @@ export interface User {
     created_at: string;
     updated_at: string;
     [key: string]: unknown; // This allows for additional properties...
+}
+
+export interface School {
+    id: number;
+    npsn: string;
+    nama_sekolah: string;
+    kecamatan_id: string;
+    created_at: string;
+    updated_at: string;
+    deleted_at: string | null;
+}
+
+export interface Subject {
+    id: number;
+    nama_mapel: string;
+    created_at: string;
+    updated_at: string;
+    deleted_at: string | null;
 }
